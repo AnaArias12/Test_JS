@@ -1,0 +1,25 @@
+DOCTYPE html><html lang=”en”>
+<head>
+<meta charset=”utf-8”>
+<head><title>Pagina de document BOM</title></head>
+</head>
+<body>
+<p>Primer parrafo de la pagina</p>
+<a href="otra_pagina.html">enlace</a>
+<img src="logo.jpg" name="logo"/>
+<form method="post" name="consultas">
+<input type="text" name="id" />
+<input type="submit" value="Enviar">
+</form>
+</body></html>
+/* LLAMADAS*/
+//Párrafo:
+document.getElementsByTagName("p")
+// Enlace:
+document.links[0]
+// Imagen:
+document.images[0]
+document.images["logo"]
+// Formulario:
+document.forms[0]
+document.forms["consultas"]
