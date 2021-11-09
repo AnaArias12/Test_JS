@@ -19,24 +19,11 @@ function cargar(){
     table = document.createElement("table")//creamos tabla donde esta todo el cuerpo del form
     table.id = "table"
 
-    form.appendChild(table); //agrego table como hjo del form
-
-        //CAMPOS DE TEXTO
-
-        //creo DNI
-        var pdni = document.createElement("p")//creo p
-        pdni.id = "pdni"
-        table.appendChild(pdni)
-        var tdni = document.createTextNode("DNI: ")
-        pdni.appendChild(tdni)
-        var input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "DNI"
-        pdni.appendChild(input);
-        
+    form.appendChild(table); //agrego table como hijo del form
+           
         //creo nombre
         var pnombre = document.createElement("p")//creo p
-        pnombre.id = "pnombre"
+        pnombre.id = "texto"
         table.appendChild(pnombre)
         var tnombre = document.createTextNode("Nombre: ")
         pnombre.appendChild(tnombre)
@@ -47,20 +34,9 @@ function cargar(){
         pnombre.appendChild(input);
     
 
-        //creo apellidos
-        var pape = document.createElement("p")//creo p
-        pape.id = "pape"
-        table.appendChild(pape)
-        var tape = document.createTextNode("Apellidos: ")
-        pape.appendChild(tape)
-        var input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Apellidos"
-        pape.appendChild(input);
-
         //creo direccion
         var pdi = document.createElement("p")//creo p
-        pdi.id = "pdi"
+        pdi.id = "texto"
         table.appendChild(pdi)
         var tdi = document.createTextNode("Dirección: ")
         pdi.appendChild(tdi)
@@ -71,7 +47,7 @@ function cargar(){
 
         //creo telefono
         var pte = document.createElement("p")//creo p
-        pte.id = "pte"
+        pte.id = "texto"
         table.appendChild(pte)
         var tte = document.createTextNode("Teléfono: ")
         pte.appendChild(tte)
@@ -79,203 +55,175 @@ function cargar(){
         input.type = "text";
         input.placeholder = "Teléfono"
         pte.appendChild(input);
-
+        
+        //creo email
+        var pem = document.createElement("p")//creo p
+        pte.id = "texto"
+        table.appendChild(pem)
+        var tem = document.createTextNode("E-mail: ")
+        pem.appendChild(tem)
+        var input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "E-mail"
+        pem.appendChild(input);
     
 
-   /* RADIO1*/
+   /* RADIO*/
 
     var p = document.createElement("p")
     p.id = "p"
     table.appendChild(p)
-    var radiotext = document.createTextNode("Escoja su destino favorito: ")
+    var radiotext = document.createTextNode("Tamaño: ")
     p.appendChild(radiotext)
 
-    //buton1
+    //button1
     var input = document.createElement("input");
     input.type ="radio"
+    input.value = "pequeño"
+    input.name = "tamaño"
+    input.id = "tamaño_pe"
     p.appendChild(input);
     var p1 = document.createElement(p1) //creo p
     p1.id = "p1"
     p.appendChild(p1)
-    var opcion1 = document.createTextNode("Singapur")
+    var opcion1 = document.createTextNode("Pequeño")
     p1.appendChild(opcion1)
 
 
-    //buton 2
+    //button 2
     var input = document.createElement("input");
     input.type ="radio"
+    input.value = "mediano"
+    input.name = "tamaño"
+    input.id = "tamaño_me"
     p.appendChild(input);
     var p2 = document.createElement(p2) //creo p
     p2.id = "p2"
     p.appendChild(p2)
-    var opcion2 = document.createTextNode("Suecia")
+    var opcion2 = document.createTextNode("Mediano")
     p2.appendChild(opcion2)
 
 
-    //buton3
+    //button3
     var input = document.createElement("input");
     input.type ="radio"
+    input.value = "grande"
+    input.name = "tamaño"
+    input.id = "tamaño_gr"
     p.appendChild(input);
     var p3 = document.createElement(p3) //creo p
     p3.id = "p3"
     p.appendChild(p3)
-    var opcion3 = document.createTextNode("Australia")
+    var opcion3 = document.createTextNode("Grande")
     p3.appendChild(opcion3)
 
-    //buton4
+   
+   //checkbox
+
+    var pin = document.createElement("p")
+    pin.id = "pin"
+    table.appendChild(pin)
+    var checkboxtext = document.createTextNode("Ingredientes: ")
+    pin.appendChild(checkboxtext)
+
+    //checkbox1
 
     var input = document.createElement("input");
-    input.type ="radio"
-    p.appendChild(input);
+    input.type ="checkbox"
+    pin.appendChild(input);
     var p4 = document.createElement(p4) //creo p
-    p4.id = "p1"
-    p.appendChild(p4)
-    var opcion4 = document.createTextNode("México")
-    p4.appendChild(opcion4)
+    p4.id = "p4"
+    pin.appendChild(p4)
+    var ingre1 = document.createTextNode("Tomate")
+    p4.appendChild(ingre1)
 
+    //checkbox2
 
-
-
-    /* RADIO2*/
-
-    var p = document.createElement("p")
-    p.id = "p"
-    table.appendChild(p)
-    var radiotext = document.createTextNode("Escoja duración de su viaje: ")
-    p.appendChild(radiotext)
-
-    //buton1
     var input = document.createElement("input");
-    input.type ="radio"
-    p.appendChild(input);
+    input.type ="checkbox"
+    pin.appendChild(input);
     var p5 = document.createElement(p5) //creo p
-    p5.id = "p1"
-    p.appendChild(p5)
-    var opcion5 = document.createTextNode("1 semana")
-    p5.appendChild(opcion5)
+    p5.id = "p5"
+    pin.appendChild(p5)
+    var ingre2 = document.createTextNode("Atún")
+    p5.appendChild(ingre2)
 
-
-    //buton 2
+    //checkbox3
     var input = document.createElement("input");
-    input.type ="radio"
-    p.appendChild(input);
+    input.type ="checkbox"
+    pin.appendChild(input);
     var p6 = document.createElement(p6) //creo p
     p6.id = "p6"
-    p.appendChild(p6)
-    var opcion6 = document.createTextNode(" 1 mes")
-    p6.appendChild(opcion6)
+    pin.appendChild(p6)
+    var ingre3 = document.createTextNode("Aceitunas")
+    p6.appendChild(ingre3)
 
-
-    //buton3
+    //checkbox4
     var input = document.createElement("input");
-    input.type ="radio"
-    p.appendChild(input);
+    input.type ="checkbox"
+    pin.appendChild(input);
     var p7 = document.createElement(p7) //creo p
     p7.id = "p7"
-    p.appendChild(p7)
-    var opcion7 = document.createTextNode(" 3 meses")
-    p7.appendChild(opcion7)
+    pin.appendChild(p7)
+    var ingre4 = document.createTextNode("Albahaca")
+    p7.appendChild(ingre4)
 
-    //buton4
+    //procesar
 
     var input = document.createElement("input");
-    input.type ="radio"
-    p.appendChild(input);
-    var p8 = document.createElement(p8) //creo p
-    p8.id = "p8"
-    p.appendChild(p8)
-    var opcion8 = document.createTextNode(" +365 ;)")
-    p8.appendChild(opcion8)
+    input.type = "submit"
+    input.value = "Enviar información"
+    table.appendChild(input);
 
-    checkbox
+    //VALIDACION
 
-    var input = document.createElement("input")
-    input.type = "checkbox"
-    input.name = "checkbox"
-    input.value = "checbox"
-    var checkbox = document.createTextNode("hola")
-    input.appendChild(checkbox)
-    table.appendChild(input)
-
-    function select(){
-
-    let select = document.createElement("select");
- 
-    let option1 = document.createElement("option");
-    option1.setAttribute("value", "value1");
-    let option1Texto = document.createTextNode("Alojamiento");
-    option1.appendChild(option1Texto);
- 
-    let option2 = document.createElement("option");
-    option2.setAttribute("value", "value2");
-    let option2Texto = document.createTextNode("Todo incluido");
-    option2.appendChild(option2Texto);
- 
-    let option3 = document.createElement("option");
-    option3.setAttribute("value", "value3");
-    let option3Texto = document.createTextNode("Media Pension");
-    option3.appendChild(option3Texto);
- 
-    select.appendChild(option1);
-    select.appendChild(option2);
-    select.appendChild(option3);
- 
-    table.appendChild(select);
-
-    /*var opc1 = new array ("-", "Hotel", "Apartamento", "airbnb", "ApartaHotel")
-    var opc1 = new array ("-", "Completa", "Media", "Solo desayuno", "Solo cena")
-    var opc1 = new array ("-", "Piscina", "Gimnasio", "Jacuzzi", "Masaje")*/
-
-   }
-
-    select();
-
-    /*textarea*/
-
-    function textArea (){
-    
-        p = document.createElement("p")
-        p.id = "p"
-        ptext = document.createTextNode("Escriba sugerencias: ")
-        table.appendChild(p)
-        p.appendChild(ptext)
-    
-        elem = document.createElement('textarea');
-        elem.className = "textarea"
-        elem.cols = 40;
-        elem.rows = 10;
-        elem.placeholder = "Por favor, escriba aqui sus comentarios"
-        table.appendChild(elem);
-
-    }
-
-    textArea();
-
-   /* function checkbox(){
-
-        p = document.createElement("p")
-        p.id = "p"
-        input2.appendChild(p)
-        ptext = document.createTextNode("Acepto condiciones y servicios")
-        p.appendChild(ptext)
-
-        
-        input = document.createElement("input") 
-        input.type = "checkbox"
-        p.appendChild(input); 
-    }
-    
-    checkbox();*/
-
-  
-
-
-
-
-
-
-   
 }
+
+    function validacion (){ 
+        
+        //validacion campos de texto
+        console.log("validando los datos del formulario...")
+        if (texto.value.trim() == "") {
+            // Si no se cumple la condicion...
+            alert('[ERROR] El campo debe de estar relleno');
+            return false;
+        }
+
+
+        //validacion button
+
+        tamaño = document.getElementsByName("tamaño");
+            var seleccionado = false //partimos de que no ha seleccionado ninguno
+            for(var i = 0; i < tamaño.length; i++){
+
+                if(tamaño[i].checked){
+                    seleccionado = true;
+                    break;
+                }
+            }    
+
+            if(!seleccionado) {
+                alert('[ERROR] Debe seleccionar un tamaño');
+                return false;
+            }
+
+
+
+
+
+    }
+
+    
+
+    
+
+
+
+
+
+
+    
+
 
 
 
