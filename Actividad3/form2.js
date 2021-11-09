@@ -12,7 +12,7 @@ function cargar(){
     form.id = "form" //<form></form>
     form.name = "form"
     form.method = "post"
-    form.action= ""
+    form.action= "URL"
 
     document.body.appendChild(form);//agrego el element form a la pagina
 
@@ -130,6 +130,8 @@ function cargar(){
 
     var input = document.createElement("input");
     input.type ="checkbox"
+    input.name = "ingredientes"
+    input.value = "tomate"
     pin.appendChild(input);
     var p4 = document.createElement(p4) //creo p
     p4.id = "p4"
@@ -141,6 +143,8 @@ function cargar(){
 
     var input = document.createElement("input");
     input.type ="checkbox"
+    input.name = "ingredientes"
+    input.value = "atun"
     pin.appendChild(input);
     var p5 = document.createElement(p5) //creo p
     p5.id = "p5"
@@ -151,6 +155,8 @@ function cargar(){
     //checkbox3
     var input = document.createElement("input");
     input.type ="checkbox"
+    input.name = "ingredientes"
+    input.value = "aceitunas"
     pin.appendChild(input);
     var p6 = document.createElement(p6) //creo p
     p6.id = "p6"
@@ -161,6 +167,8 @@ function cargar(){
     //checkbox4
     var input = document.createElement("input");
     input.type ="checkbox"
+    input.name = "ingredientes"
+    input.value = "Albahaca"
     pin.appendChild(input);
     var p7 = document.createElement(p7) //creo p
     p7.id = "p7"
@@ -175,9 +183,10 @@ function cargar(){
     input.value = "Enviar información"
     table.appendChild(input);
 
-    //VALIDACION
+    
 
 }
+    //VALIDACION
 
     function validacion (){ 
         
@@ -207,11 +216,29 @@ function cargar(){
                 return false;
             }
 
+        //validacion checkbox
 
+        ingredientes = document.getElementsByName("ingredientes");
+            for( var i= 0; i<ingredientes.length; i++){
+                if(ingredientes[i].checked){
+                    return true;
+                }
+                    
+                alert("Debe seleccionar al menos 1 ingrediente");
+                    return false;
+            }
 
-
+            alert("Mandamos el formulario!")
+            return true;
 
     }
+
+    window.onload = function(){
+        form.onsubmit = validacion;
+
+    }
+
+
 
     
 
