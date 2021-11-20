@@ -17,9 +17,24 @@ function textArea (){
     form.appendChild(table); //agrego table como hjo del form
 
 
+    p = document.createElement("p")
+    p.id = "p"
+    ptext = document.createTextNode("Escriba sugerencias: ")
+    table.appendChild(p)
+    p.appendChild(ptext)
+
     elem = document.createElement('textarea');
-    elem.cols = 50;
-    elem.rows = 20;
+    elem.cols = 40;
+    elem.rows = 10;
     table.appendChild(elem);
-      
+
+
+   
+
 }
+
+
+
+
+
+

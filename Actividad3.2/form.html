@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>FormJS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="form.css"> 
+    <script type="text/javascript" src="form2.js"></script>
+    
+</head>
+
+
+<form id="form" name="form" method="post" action="URL">
+    <table id="table">
+        <p id="pnombre">Nombre: <input type="text" id="nombre" name="texto" placeholder="Nombre" class="css-class-name">
+        </p>
+        <p id="direccion">Dirección: <input type="text" name="texto" placeholder="Dirección"></p>
+        <p id="ptelefono">Teléfono: <input type="text" id="telefono" name="texto" placeholder="Teléfono"></p>
+        <p id="pemail">E-mail: <input type="text" id="email" name="texto" placeholder="E-mail"></p>
+        <p id="p">Tamaño: <input type="radio" value="5" name="tamaño" id="tamaño_pe">
+            <undefined id="p1">Pequeño</undefined><input type="radio" value="10" name="tamaño" id="tamaño_me">
+            <undefined id="p2">Mediano</undefined><input type="radio" value="15" name="tamaño" id="tamaño_gr">
+            <undefined id="p3">Grande</undefined>
+        </p>
+        <p id="pin">Ingredientes: <input type="checkbox" name="ingredientes" value="1">
+            <undefined id="p4">Tomate</undefined><input type="checkbox" name="ingredientes" value="1">
+            <undefined id="p5">Atún</undefined><input type="checkbox" name="ingredientes" value="1">
+            <undefined id="p6">Aceitunas</undefined><input type="checkbox" name="ingredientes" value="1">
+            <undefined id="p7">Albahaca</undefined>
+        </p><input type="submit" value="Procesar pedido">
+    </table>
+</form>

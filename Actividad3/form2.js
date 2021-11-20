@@ -23,12 +23,15 @@ function cargar(){
            
         //creo nombre
         var pnombre = document.createElement("p")//creo p
-        pnombre.id = "texto"
+        pnombre.id = "pnombre"
         table.appendChild(pnombre)
         var tnombre = document.createTextNode("Nombre: ")
         pnombre.appendChild(tnombre)
         var input = document.createElement("input");
         input.type = "text";
+        input.id = "nombre"
+        input.name = "texto"
+        input.value = ""
         input.placeholder = "Nombre"
         input.className = "css-class-name"; // set the CSS class
         pnombre.appendChild(input);
@@ -36,34 +39,42 @@ function cargar(){
 
         //creo direccion
         var pdi = document.createElement("p")//creo p
-        pdi.id = "texto"
+        pdi.id = "direccion"
         table.appendChild(pdi)
         var tdi = document.createTextNode("Dirección: ")
         pdi.appendChild(tdi)
         var input = document.createElement("input");
         input.type = "text";
+        input.name = "texto"
+        input.value = ""
         input.placeholder = "Dirección"
         pdi.appendChild(input);
 
         //creo telefono
         var pte = document.createElement("p")//creo p
-        pte.id = "texto"
+        pte.id = "ptelefono"
         table.appendChild(pte)
         var tte = document.createTextNode("Teléfono: ")
         pte.appendChild(tte)
         var input = document.createElement("input");
         input.type = "text";
+        input.id = "telefono"
+        input.name = "texto"
+        input.value = ""
         input.placeholder = "Teléfono"
         pte.appendChild(input);
         
         //creo email
         var pem = document.createElement("p")//creo p
-        pte.id = "texto"
+        pem.id = "pemail"
         table.appendChild(pem)
         var tem = document.createTextNode("E-mail: ")
         pem.appendChild(tem)
         var input = document.createElement("input");
         input.type = "text";
+        input.id = "email"
+        input.name = "texto"
+        input.value = ""
         input.placeholder = "E-mail"
         pem.appendChild(input);
     
@@ -79,7 +90,7 @@ function cargar(){
     //button1
     var input = document.createElement("input");
     input.type ="radio"
-    input.value = "pequeño"
+    input.value = "5"
     input.name = "tamaño"
     input.id = "tamaño_pe"
     p.appendChild(input);
@@ -93,7 +104,7 @@ function cargar(){
     //button 2
     var input = document.createElement("input");
     input.type ="radio"
-    input.value = "mediano"
+    input.value = "10"
     input.name = "tamaño"
     input.id = "tamaño_me"
     p.appendChild(input);
@@ -107,7 +118,7 @@ function cargar(){
     //button3
     var input = document.createElement("input");
     input.type ="radio"
-    input.value = "grande"
+    input.value = "15"
     input.name = "tamaño"
     input.id = "tamaño_gr"
     p.appendChild(input);
@@ -131,7 +142,7 @@ function cargar(){
     var input = document.createElement("input");
     input.type ="checkbox"
     input.name = "ingredientes"
-    input.value = "tomate"
+    input.value = "1"
     pin.appendChild(input);
     var p4 = document.createElement(p4) //creo p
     p4.id = "p4"
@@ -144,7 +155,7 @@ function cargar(){
     var input = document.createElement("input");
     input.type ="checkbox"
     input.name = "ingredientes"
-    input.value = "atun"
+    input.value = "1"
     pin.appendChild(input);
     var p5 = document.createElement(p5) //creo p
     p5.id = "p5"
@@ -156,7 +167,7 @@ function cargar(){
     var input = document.createElement("input");
     input.type ="checkbox"
     input.name = "ingredientes"
-    input.value = "aceitunas"
+    input.value = "1"
     pin.appendChild(input);
     var p6 = document.createElement(p6) //creo p
     p6.id = "p6"
@@ -168,7 +179,7 @@ function cargar(){
     var input = document.createElement("input");
     input.type ="checkbox"
     input.name = "ingredientes"
-    input.value = "Albahaca"
+    input.value = "1"
     pin.appendChild(input);
     var p7 = document.createElement(p7) //creo p
     p7.id = "p7"
@@ -180,32 +191,60 @@ function cargar(){
 
     var input = document.createElement("input");
     input.type = "submit"
-    input.value = "Enviar información"
+    input.value = "Procesar pedido"
     table.appendChild(input);
 
     
 
-}
+
     //VALIDACION
 
     function validacion (){ 
+
+        //validacion campos vacios + expresiones regulares
+        nombre = document.getElementById("nombre").value
+        telefono = document.getElementById("telefono").value
+        email = document.getElementById("email").value
+        reg1 = /[A-Z]/;//validar mayusculas
+        reg2 = /^\d{9}$/;//validar numero de telefono
+        reg3 = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;//validar email
+
+        texto = document.getElementsByName("texto")
+
         
-        //validacion campos de texto
-        console.log("validando los datos del formulario...")
-        if (texto.value.trim() == "") {
-            // Si no se cumple la condicion...
-            alert('[ERROR] El campo debe de estar relleno');
-            return false;
-        }
+            for(var i = 0; i < texto.length; i++){
+                if (texto[i].value.trim()== "") {
+                    alert('[ERROR] Todos los campos deben de estar rellenos');
+                    return false;
+                }
+                          
+            }
 
-
+            if(nombre.match(reg1)){
+                //return true;
+            }else{
+                alert("El nombre no es válido")
+            }
+            
+            if(telefono.match(reg2)){
+                //return true;
+            }else{
+                alert("El número de teléfono no es válido")
+            }
+            if(email.match(reg3)){
+                //return true;
+            }else{
+                alert("La dirección email no es válida")
+            }
+            
         //validacion button
 
         tamaño = document.getElementsByName("tamaño");
-            var seleccionado = false //partimos de que no ha seleccionado ninguno
+            var seleccionado = false//partimos de que no ha seleccionado ninguno
             for(var i = 0; i < tamaño.length; i++){
 
                 if(tamaño[i].checked){
+                    precioTamaño = tamaño[i].value;
                     seleccionado = true;
                     break;
                 }
@@ -213,7 +252,7 @@ function cargar(){
 
             if(!seleccionado) {
                 alert('[ERROR] Debe seleccionar un tamaño');
-                return false;
+               
             }
 
         //validacion checkbox
@@ -221,22 +260,29 @@ function cargar(){
         ingredientes = document.getElementsByName("ingredientes");
             for( var i= 0; i<ingredientes.length; i++){
                 if(ingredientes[i].checked){
+                    precioIngre = ingredientes[i].value;
                     return true;
                 }
                     
-                alert("Debe seleccionar al menos 1 ingrediente");
+                alert("[ERROR]Debe seleccionar al menos 1 ingrediente");
                     return false;
             }
+    
 
-            alert("Mandamos el formulario!")
-            return true;
+        precioTotal = precioTamaño + precioIngre;
+        alert("El precio total del pedido es: " +precioTotal)
+        return true;
 
-    }
+       
+        
+    }   
+    
+    
+ 
+    form.onsubmit = validacion;
+      
+}
 
-    window.onload = function(){
-        form.onsubmit = validacion;
-
-    }
 
 
 

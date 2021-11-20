@@ -7,7 +7,7 @@ Un text area*/
 
 function cargar(){
      
-    var form = document.createElement("form") //creamos element form
+    form = document.createElement("form") //creamos element form
     form.id = "form" //<form></form>
     form.name = "form"
     form.method = "post"
@@ -15,13 +15,10 @@ function cargar(){
 
     document.body.appendChild(form);//agrego el element form a la pagina
 
-    var table = document.createElement("table")//creamos tabla donde esta todo el cuerpo del form
+    table = document.createElement("table")//creamos tabla donde esta todo el cuerpo del form
     table.id = "table"
 
     form.appendChild(table); //agrego table como hjo del form
-
-    
-
 
         //CAMPOS DE TEXTO
 
@@ -189,9 +186,90 @@ function cargar(){
     var opcion8 = document.createTextNode(" +365 ;)")
     p8.appendChild(opcion8)
 
-    /*checkbox*/
+    checkbox
 
-    /*select*/
+    var input = document.createElement("input")
+    input.type = "checkbox"
+    input.name = "checkbox"
+    input.value = "checbox"
+    var checkbox = document.createTextNode("hola")
+    input.appendChild(checkbox)
+    table.appendChild(input)
+
+    function select(){
+
+    let select = document.createElement("select");
+ 
+    let option1 = document.createElement("option");
+    option1.setAttribute("value", "value1");
+    let option1Texto = document.createTextNode("Alojamiento");
+    option1.appendChild(option1Texto);
+ 
+    let option2 = document.createElement("option");
+    option2.setAttribute("value", "value2");
+    let option2Texto = document.createTextNode("Todo incluido");
+    option2.appendChild(option2Texto);
+ 
+    let option3 = document.createElement("option");
+    option3.setAttribute("value", "value3");
+    let option3Texto = document.createTextNode("Media Pension");
+    option3.appendChild(option3Texto);
+ 
+    select.appendChild(option1);
+    select.appendChild(option2);
+    select.appendChild(option3);
+ 
+    table.appendChild(select);
+
+    /*var opc1 = new array ("-", "Hotel", "Apartamento", "airbnb", "ApartaHotel")
+    var opc1 = new array ("-", "Completa", "Media", "Solo desayuno", "Solo cena")
+    var opc1 = new array ("-", "Piscina", "Gimnasio", "Jacuzzi", "Masaje")*/
+
+   }
+
+    select();
+
+    /*textarea*/
+
+    function textArea (){
+    
+        p = document.createElement("p")
+        p.id = "p"
+        ptext = document.createTextNode("Escriba sugerencias: ")
+        table.appendChild(p)
+        p.appendChild(ptext)
+    
+        elem = document.createElement('textarea');
+        elem.className = "textarea"
+        elem.cols = 40;
+        elem.rows = 10;
+        elem.placeholder = "Por favor, escriba aqui sus comentarios"
+        table.appendChild(elem);
+
+    }
+
+    textArea();
+
+   /* function checkbox(){
+
+        p = document.createElement("p")
+        p.id = "p"
+        input2.appendChild(p)
+        ptext = document.createTextNode("Acepto condiciones y servicios")
+        p.appendChild(ptext)
+
+        
+        input = document.createElement("input") 
+        input.type = "checkbox"
+        p.appendChild(input); 
+    }
+    
+    checkbox();*/
+
+  
+
+
+
 
 
 
