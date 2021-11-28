@@ -35,11 +35,11 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
     var objetoJson =JSON.parse(jsonDoc); //parsemos el texto a json
     console.log(objetoJson);
     //formamos la tabla
-    var table = "<tr><th>Tamaño</th><th>Precio</th></tr>";
+    var table = "<tr><th>Tamaño</th><th>Precio</th><th></th></tr>";
     var arrayTamaño = objetoJson.CATALOG.TAMAÑO; //accedemos al catolo y al tamaño del objeto json
     for (let tam of arrayTamaño) {
         table += "<tr><td>" + tam.TAMANO + "</td>" + 
-                   "<td>" + tam.PRECIO + "<tr><td>";
+                   "<td>" + tam.PRECIO + "<td>" + "<td><INPUT type=checkbox name=checkta value =5><tr><td>";
     }
 
     resultadoTamaño.innerHTML = table;
@@ -71,22 +71,44 @@ function procesarRespuestaIn(jsonDoc) {
     var objetoJson =JSON.parse(jsonDoc); //parsemos el texto a json
     console.log(objetoJson);
     //formamos la tabla
-    var table = "<tr><th>Ingredientes</th><th>Precio</th></tr>";
+    var table = "<tr><th>Ingredientes</th><th>Precio</th><th></th></tr>";
     var arrayIngre = objetoJson.CATALOG.INGREDIENTES; //accedemos al catolo y al tamaño del objeto json
     for (let ing of arrayIngre) {
         table += "<tr><td>" + ing.INGREDIENTE + "</td>" + 
-                   "<td>" + ing.PRECIO + "<tr><td>";
+                   "<td>" + ing.PRECIO + "<td>" +  "<td><INPUT type=checkbox name checkin><tr><td>" ;
     }
 
     resultadoIngredientes.innerHTML = table;
 }
 
-function refrescarDatos(){
+function calcularPrecio(){
+    var total;
+    var ta1 = document.getElementsByName("checkta");
+    var ta2 = document.getElementsByName("checkta");
+    var ta3 = document.getElementsByName("checkta");
 
+    if(ta1.checked){
+        total = 5
+    }
+    if(ta2.checked)
+        total =  10
+    
+    if(ta3.checked)
+        total =  15
+    
 
-
-}
-
+   /*var sum = document.getElementsByName("checkta")
+    for( i=0; i< sum.length;++i){
+        if(sum[i].checked){
+            total = sum[i].checked
+        }*/
+       
+    alert("El pedido ha sido enviado!!! "+
+    "El precio total es de " + total+ " €")  
+    
+    }
    
+
+
 
 
