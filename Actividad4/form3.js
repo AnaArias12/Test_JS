@@ -47,14 +47,40 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
 
 
 
- /*function cargarIngredientes(){
-
-
+ function cargarIngredientes(){
 
     let xmlHttp = new XMLHttpRequest()  
 
-    xmlHttp.open
+    xmlHttp.onreadystatechange = function(){        
+            if( this.readyState == 4){
+            if(this.status == 200){
+                procesarRespuestaTa(this.responseText) 
+            } else {
+                alert("[ERROR]")
+            }
+        }
+    }
 
-    xmlHttp.send
-}*/
+    xmlHttp.open('GET', URL_DESTINO + RECURSO, true); // utilizamos la función open (le decimos get porque vamos a hacer una petcion, accedemos a una URL y a un recurso concreto)
+    xmlHttp.send(null)//no mandamos nada, estamos haciendo una peticion get.
+  
+  
+ }
+function procesarRespuestaIn(jsonDoc) {
+   
+    var objetoJson =JSON.parse(jsonDoc); //parsemos el texto a json
+    console.log(objetoJson);
+    //formamos la tabla
+    var table = "<tr><th>Tamaño</th><th>Precio</th></tr>";
+    var arrayIngre = objetoJson.CATALOG.INGREDIENTES; //accedemos al catolo y al tamaño del objeto json
+    for (let ing of arrayIngre) {
+        table += "<tr><td>" + ing.INGREDIENTES + "</td>" + 
+                   "<td>" + ing.PRECIO + "<tr><td>";
+    }
+
+    resultadoIngredientes.innerHTML = table;
+}
+
+   
+
 

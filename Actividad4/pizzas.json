@@ -3,33 +3,33 @@
         "TAMAÑO": [
             {
                 "TAMANO": "pequeña",
-                "PRECIO": "5"
+                "PRECIO": "5€"
             },
             {
                 "TAMANO": "mediana",
-                "PRECIO": "10"
+                "PRECIO": "10€"
             },
             {
                 "TAMANO": "grande",
-                "PRECIO": "15"
+                "PRECIO": "15€"
             }
         ],
         "INGREDIENTES": [
             {
                 "INGREDIENTE": "Tomate",
-                "PRECIO": "1"
+                "PRECIO": "1€"
             },
             {
                 "INGREDIENTE": "Atún",
-                "PRECIO": "1"
+                "PRECIO": "1€"
             },
             {
                 "INGREDIENTE": "Aceitunas",
-                "PRECIO": "1"
+                "PRECIO": "1€"
             },
             {
                 "INGREDIENTE": "Albahaca",
-                "PRECIO": "1"
+                "PRECIO": "1€"
             }
         ]       
     }
