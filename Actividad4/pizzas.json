@@ -2,15 +2,15 @@
     "CATALOG": {
         "TAMAÑO": [
             {
-                "TAMANO": "pequeña",
+                "TAMANO": "Pequeña",
                 "PRECIO": "5€"
             },
             {
-                "TAMANO": "mediana",
+                "TAMANO": "Mediana",
                 "PRECIO": "10€"
             },
             {
-                "TAMANO": "grande",
+                "TAMANO": "Grande",
                 "PRECIO": "15€"
             }
         ],

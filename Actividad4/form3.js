@@ -3,6 +3,8 @@ const URL_DESTINO = "http://localhost:5501/Actividad4/";
 
 const RECURSO = "pizzas.json"
 
+document.onload =  cargarTamaños(), cargarIngredientes()
+
 function cargarTamaños(){
     //Cuando se produzca el evento pulsar en tamaños
 
@@ -44,9 +46,6 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
 }
 
 
-
-
-
  function cargarIngredientes(){
 
     let xmlHttp = new XMLHttpRequest()  
@@ -54,7 +53,7 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
     xmlHttp.onreadystatechange = function(){        
             if( this.readyState == 4){
             if(this.status == 200){
-                procesarRespuestaTa(this.responseText) 
+                procesarRespuestaIn(this.responseText) 
             } else {
                 alert("[ERROR]")
             }
@@ -66,19 +65,26 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
   
   
  }
+
 function procesarRespuestaIn(jsonDoc) {
    
     var objetoJson =JSON.parse(jsonDoc); //parsemos el texto a json
     console.log(objetoJson);
     //formamos la tabla
-    var table = "<tr><th>Tamaño</th><th>Precio</th></tr>";
+    var table = "<tr><th>Ingredientes</th><th>Precio</th></tr>";
     var arrayIngre = objetoJson.CATALOG.INGREDIENTES; //accedemos al catolo y al tamaño del objeto json
     for (let ing of arrayIngre) {
-        table += "<tr><td>" + ing.INGREDIENTES + "</td>" + 
+        table += "<tr><td>" + ing.INGREDIENTE + "</td>" + 
                    "<td>" + ing.PRECIO + "<tr><td>";
     }
 
     resultadoIngredientes.innerHTML = table;
+}
+
+function refrescarDatos(){
+
+
+
 }
 
    
