@@ -25,24 +25,23 @@ function cargarTamaños(){
             'async' : true, 
             }
         ).done(procesarRespuestaTa)//si todo ha ido bien le paso esta funcion
-   
+           
 }
 
-function procesarRespuestaTa(pizza) {
-    console.log(pizza);
+function procesarRespuestaTa(pizzas) {
+    console.log(pizzas);
 
-    let tam = pizza.CATALOG.TAMAÑO//obtengo los tamaños
-    $("#tbodyTamaños").html('')
+    let tam = pizzas.CATALOG.TAMAÑO//obtengo los tamaños
+   // $("#tbodyTamaños").html('')
 
-    $.each(tam,function(i, ta){
+    $.each(tam,function(i, ta){//i variable de control del bucle
         
         let tr = $(`<tr>
-                <td>${i}</td>
                 <td>${ta.TAMANO}</td>
                 <td>${ta.PRECIO}</td>
            </tr>`)
        
-        tr.appendTo("#tbodyTamaño")
+        tr.appendTo("#tbodyTamaños")
     })
 }
   
@@ -60,16 +59,15 @@ function procesarRespuestaTa(pizza) {
   
  }
 
-function procesarRespuestaIn(pizza) {
-    console.log(pizza);
+function procesarRespuestaIn(pizzas) {
+    console.log(pizzas);
    
-    let ta = pizza.CATALOG.INGREDIENTES
+    let ingre = pizzas.CATALOG.INGREDIENTES
     $("#tbodyIngre").html('')
 
     $.each(ingre,function(i, ing){
         
         let tr = $(`<tr>
-                <td>${i}</td>
                 <td>${ing.INGREDIENTE}</td>
                 <td>${ing.PRECIO}</td>
            </tr>`)
@@ -77,7 +75,7 @@ function procesarRespuestaIn(pizza) {
         tr.appendTo("#tbodyIngre")
     })
 }
-    
+ 
 
 
 function calcularPrecio(){
