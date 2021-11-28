@@ -1,7 +1,7 @@
 
-const URL_DESTINO = "C:/xampp/htdocs/Actividad4Ana/";
+const URL_DESTINO = "http://localhost:5501/Actividad4/";
 
-//const RECURSO = "pizzas.json"
+const RECURSO = "pizzas.json"
 
 function cargarTamaños(){
     //Cuando se produzca el evento pulsar en tamaños
