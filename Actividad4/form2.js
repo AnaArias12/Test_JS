@@ -1,7 +1,7 @@
 
-/*const URL_DESTINO = "http://localhost:5500/09_AJAX/"*/
+const URL_DESTINO = "C:/xampp/htdocs/Actividad4Ana/";
 
-const RECURSO = "pizzas.json"
+//const RECURSO = "pizzas.json"
 
 function cargarTamaños(){
     //Cuando se produzca el evento pulsar en tamaños
@@ -15,7 +15,7 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
     xmlHttp.onreadystatechange = function(){        
             if( this.readyState == 4){
             if(this.status == 200){//OK
-                procesarRespuesta(this.responseText)
+                procesarRespuestaTa(this.responseText) //siempre nos va a llegar en formato texto
             } else {
                 alert("[ERROR]")
             }
@@ -23,10 +23,26 @@ let xmlHttp = new XMLHttpRequest()  //lo primero que hace es crear el elemento x
     }
 
     xmlHttp.open('GET', URL_DESTINO + RECURSO, true); // utilizamos la función open (le decimos get porque vamos a hacer una petcion, accedemos a una URL y a un recurso concreto)
-    xmlHttp.send("null")//no mandamos nada, estamos haciendo una peticion get.
-    console.log("responseText: "+xmlHttp.responseText);
+    xmlHttp.send(null)//no mandamos nada, estamos haciendo una peticion get.
+  
   
  }
+
+ function procesarRespuestaTa(jsonDoc) {
+   
+    var objetoJson =JSON.parse(jsonDoc); //parsemos el texto a json
+    console.log(objetoJson);
+    //formamos la tabla
+    var table = "<tr><th>Tamaño</th><th>Precio</th></tr>";
+    var arrayTamaño = objetoJson.CATALOG.TAMAÑO; //accedemos al catolo y al tamaño del objeto json
+    for (let tam of arrayTamaño) {
+        table += "<tr><td>" + tam.TAMANO + "</td>" + 
+                   "<td>" + tam.PRECIO + "<tr><td>";
+    }
+
+    resultadoTamaño.innerHTML = table;
+}
+
 
 
 
